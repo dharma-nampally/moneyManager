@@ -1,0 +1,46 @@
+0 verbose cli [
+0 verbose cli   '/usr/local/nvm/versions/node/v16.13.0/bin/node',
+0 verbose cli   '/usr/local/nvm/versions/node/v16.13.0/bin/npm',
+0 verbose cli   'start'
+0 verbose cli ]
+1 info using npm@8.1.0
+2 info using node@v16.13.0
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/usr/local/nvm/versions/node/v16.13.0/lib/node_modules/npm/npmrc Completed in 49ms
+6 timing config:load:builtin Completed in 50ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 2ms
+11 timing config:load:file:/home/nxtwave/.npmrc Completed in 2ms
+12 timing config:load:user Completed in 2ms
+13 timing config:load:file:/usr/local/nvm/versions/node/v16.13.0/etc/npmrc Completed in 0ms
+14 timing config:load:global Completed in 1ms
+15 timing config:load:validate Completed in 0ms
+16 timing config:load:credentials Completed in 1ms
+17 timing config:load:setEnvs Completed in 1ms
+18 timing config:load Completed in 59ms
+19 timing npm:load:configload Completed in 59ms
+20 timing npm:load:setTitle Completed in 0ms
+21 timing npm:load:setupLog Completed in 0ms
+22 timing config:load:flatten Completed in 2ms
+23 timing npm:load:cleanupLog Completed in 3ms
+24 timing npm:load:configScope Completed in 0ms
+25 timing npm:load:projectScope Completed in 0ms
+26 timing npm:load Completed in 68ms
+27 timing command:run-script Completed in 4ms
+28 timing command:start Completed in 7ms
+29 verbose stack Error: ENOENT: no such file or directory, open '//package.json'
+30 verbose cwd /home/nxtwave
+31 verbose Linux 5.10.228-219.884.amzn2.x86_64
+32 verbose argv "/usr/local/nvm/versions/node/v16.13.0/bin/node" "/usr/local/nvm/versions/node/v16.13.0/bin/npm" "start"
+33 verbose node v16.13.0
+34 verbose npm  v8.1.0
+35 error code ENOENT
+36 error syscall open
+37 error path //package.json
+38 error errno -2
+39 error enoent ENOENT: no such file or directory, open '//package.json'
+40 error enoent This is related to npm not being able to find a file.
+41 verbose exit -2

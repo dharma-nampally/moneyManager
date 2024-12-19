@@ -100,7 +100,7 @@ class MoneyManager extends Component {
     } = this.state
     const transactionTypeOptions = [
       {optionId: 'INCOME', displayText: 'Income'},
-      {optionId: 'EXPENSE', displayText: 'Expense'},
+      {optionId: 'EXPENSE', displayText: 'Expense'}, // Corrected from EXPENSES to EXPENSE
     ]
 
     return (
@@ -132,7 +132,7 @@ class MoneyManager extends Component {
                 </label>
                 <input
                   id="amountid"
-                  type="number"
+                  type="text"
                   placeholder="AMOUNT"
                   value={amountInput}
                   onChange={this.handleAmountChange}
