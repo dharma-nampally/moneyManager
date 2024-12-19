@@ -1,0 +1,46 @@
+/* Write your CSS here */
+.money-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 25%;
+  text-align: center;
+}
+
+.detail img {
+  width: 60px;
+  height: 60px;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.detail p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.detail p:last-child {
+  font-size: 24px;
+  color: #475569;
+}
+.balance {
+  background-color: #ecfccb;
+}
+.income {
+  background-color: #cffafe;
+}
+.expenses {
+  background-color: #ede9fe;
+}

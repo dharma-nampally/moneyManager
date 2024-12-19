@@ -1,0 +1,62 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.IO = void 0;
+const fs = require("fs");
+const path = require("path");
+const pkgUp = require("pkg-up");
+class IO {
+    static unlinkSync(file) {
+        if (IO.existsSync(file)) {
+            fs.unlinkSync(file);
+        }
+    }
+    static writeFile(wpath, data) {
+        return new Promise((resolve, reject) => {
+            fs.writeFile(wpath, data, (error) => {
+                if (error) {
+                    reject(error);
+                }
+                resolve();
+            });
+        });
+    }
+    static writeFileSync(wpath, data) {
+        fs.writeFileSync(wpath, data);
+    }
+    static mkDirSync(dir) {
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir);
+        }
+    }
+    static mkdirsSync(dir) {
+        const dirs = path.resolve(dir).replace(/\\/g, "/").split("/");
+        let createDir = "";
+        for (const crDir of dirs) {
+            createDir += crDir + "/";
+            IO.mkDirSync(createDir);
+        }
+    }
+    static readFileSync(wpath) {
+        return fs.readFileSync(wpath).toString();
+    }
+    static existsSync(wpath) {
+        return fs.existsSync(wpath);
+    }
+    static readPackageJson() {
+        const packageJson = pkgUp.sync();
+        if (packageJson !== null) {
+            return JSON.parse(IO.readFileSync(packageJson));
+        }
+        else {
+            return {};
+        }
+    }
+    static copyFileSync(src, dest) {
+        fs.copyFileSync(src, dest);
+    }
+    static rmSync(path, options) {
+        fs.rmdirSync(path, options);
+    }
+}
+exports.IO = IO;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSU8uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvdXRpbHMvSU8udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEseUJBQXlCO0FBQ3pCLDZCQUE2QjtBQUU3QixNQUFNLEtBQUssR0FBRyxPQUFPLENBQUMsUUFBUSxDQUFDLENBQUM7QUFvQ2hDLE1BQWEsRUFBRTtJQU9OLE1BQU0sQ0FBQyxVQUFVLENBQUMsSUFBWTtRQUNuQyxJQUFJLEVBQUUsQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLEVBQUU7WUFDdkIsRUFBRSxDQUFDLFVBQVUsQ0FBQyxJQUFJLENBQUMsQ0FBQztTQUNyQjtJQUNILENBQUM7SUFVTSxNQUFNLENBQUMsU0FBUyxDQUFDLEtBQWEsRUFBRSxJQUFTO1FBQzlDLE9BQU8sSUFBSSxPQUFPLENBQU8sQ0FBQyxPQUFPLEVBQUUsTUFBTSxFQUFFLEVBQUU7WUFDM0MsRUFBRSxDQUFDLFNBQVMsQ0FBQyxLQUFLLEVBQUUsSUFBSSxFQUFFLENBQUMsS0FBSyxFQUFFLEVBQUU7Z0JBQ2xDLElBQUksS0FBSyxFQUFFO29CQUNULE1BQU0sQ0FBQyxLQUFLLENBQUMsQ0FBQztpQkFDZjtnQkFDRCxPQUFPLEVBQUUsQ0FBQztZQUNaLENBQUMsQ0FBQyxDQUFDO1FBQ0wsQ0FBQyxDQUFDLENBQUM7SUFDTCxDQUFDO0lBVU0sTUFBTSxDQUFDLGFBQWEsQ0FBQyxLQUFhLEVBQUUsSUFBUztRQUNsRCxFQUFFLENBQUMsYUFBYSxDQUFDLEtBQUssRUFBRSxJQUFJLENBQUMsQ0FBQztJQUNoQyxDQUFDO0lBT00sTUFBTSxDQUFDLFNBQVMsQ0FBQyxHQUFXO1FBQ2pDLElBQUksQ0FBQyxFQUFFLENBQUMsVUFBVSxDQUFDLEdBQUcsQ0FBQyxFQUFFO1lBQ3ZCLEVBQUUsQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLENBQUM7U0FDbkI7SUFDSCxDQUFDO0lBUU0sTUFBTSxDQUFDLFVBQVUsQ0FBQyxHQUFXO1FBR2xDLE1BQU0sSUFBSSxHQUFHLElBQUksQ0FBQyxPQUFPLENBQUMsR0FBRyxDQUFDLENBQUMsT0FBTyxDQUFDLEtBQUssRUFBRSxHQUFHLENBQUMsQ0FBQyxLQUFLLENBQUMsR0FBRyxDQUFDLENBQUM7UUFFOUQsSUFBSSxTQUFTLEdBQVcsRUFBRSxDQUFDO1FBQzNCLEtBQUssTUFBTSxLQUFLLElBQUksSUFBSSxFQUFFO1lBQ3hCLFNBQVMsSUFBSSxLQUFLLEdBQUcsR0FBRyxDQUFDO1lBQ3pCLEVBQUUsQ0FBQyxTQUFTLENBQUMsU0FBUyxDQUFDLENBQUM7U0FDekI7SUFDSCxDQUFDO0lBU00sTUFBTSxDQUFDLFlBQVksQ0FBQyxLQUFhO1FBQ3RDLE9BQU8sRUFBRSxDQUFDLFlBQVksQ0FBQyxLQUFLLENBQUMsQ0FBQyxRQUFRLEVBQUUsQ0FBQztJQUMzQyxDQUFDO0lBU00sTUFBTSxDQUFDLFVBQVUsQ0FBQyxLQUFhO1FBQ3BDLE9BQU8sRUFBRSxDQUFDLFVBQVUsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUM5QixDQUFDO0lBU00sTUFBTSxDQUFDLGVBQWU7UUFDM0IsTUFBTSxXQUFXLEdBQUcsS0FBSyxDQUFDLElBQUksRUFBRSxDQUFDO1FBQ2pDLElBQUksV0FBVyxLQUFLLElBQUksRUFBRTtZQUN4QixPQUFPLElBQUksQ0FBQyxLQUFLLENBQUMsRUFBRSxDQUFDLFlBQVksQ0FBQyxXQUFXLENBQUMsQ0FBQyxDQUFDO1NBQ2pEO2FBQU07WUFFTCxPQUFPLEVBQUUsQ0FBQztTQUNYO0lBQ0gsQ0FBQztJQVFNLE1BQU0sQ0FBQyxZQUFZLENBQUMsR0FBZ0IsRUFBRSxJQUFpQjtRQUM1RCxFQUFFLENBQUMsWUFBWSxDQUFDLEdBQUcsRUFBRSxJQUFJLENBQUMsQ0FBQztJQUM3QixDQUFDO0lBRU0sTUFBTSxDQUFDLE1BQU0sQ0FBQyxJQUFZLEVBQUUsT0FBbUI7UUFDcEQsRUFBRSxDQUFDLFNBQVMsQ0FBQyxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUM7SUFDOUIsQ0FBQztDQUNGO0FBN0hELGdCQTZIQyJ9

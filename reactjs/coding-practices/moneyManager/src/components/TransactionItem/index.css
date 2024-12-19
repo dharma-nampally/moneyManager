@@ -1,0 +1,55 @@
+/* Write your CSS here */
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.transaction-data {
+  width: 25%; /* Equal width for title, amount, and type */
+  text-align: left;
+}
+
+.transaction-data.title {
+  width: 30%; /* Title takes more space */
+}
+
+.transaction-data.amount,
+.transaction-data.type {
+  width: 30%; /* Amount and Type take equal space */
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* History Section Subheading */
+.transaction-subheadings {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.subheading {
+  width: 25%; /* Equal width for title, amount, and type subheadings */
+  text-align: left;
+}
+
+.subheading.title {
+  width: 20%; /* Title subheading takes more space */
+}
+
+.subheading.amount,
+.subheading.type {
+  width: 30%; /* Amount and Type subheadings take equal space */
+}
